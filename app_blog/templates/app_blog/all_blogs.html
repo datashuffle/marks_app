@@ -1,0 +1,14 @@
+{% extends 'app_default/base.html' %}
+{% block content %}
+
+<h1>Blogs</h1>
+<p>Mark has {{ blog_count }} blog{{blog_count|pluralize}}</p>
+
+{% for x in blog %}
+<a href="{% url 'blog:detail' x.id %}"><h2> HEY! {{ x.title }}</h2><a>
+<p>{{ x.description }}</p>
+
+<img src="{{ x.image.url }}" width="600px">
+{% endfor %}
+
+{% endblock %}
